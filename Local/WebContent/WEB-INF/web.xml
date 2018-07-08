@@ -44,7 +44,7 @@
     <servlet-name>Product_SubCategory</servlet-name>
     <url-pattern>/Product_SubCategory</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>Update_Category</display-name>
     <servlet-name>Update_Category</servlet-name>
@@ -203,5 +203,25 @@
   <servlet-mapping>
     <servlet-name>AdminProduct</servlet-name>
     <url-pattern>/AdminProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserProduct</display-name>
+    <servlet-name>UserProduct</servlet-name>
+    <servlet-class>Local.UserProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserProduct</servlet-name>
+    <url-pattern>/UserProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>Local.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -30,15 +30,17 @@
 	<![endif]-->
 		
 	<script src="/test/application.js" type="text/javascript"></script>
+	 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
+  
 	
 	
 </head>
 
 <body>
 	<!--PRE LOADING-->
-	<div id="preloader">
+	<!-- <div id="preloader">
 		<div id="status">&nbsp;</div>
-	</div>
+	</div> -->
 	<!--BANNER AND SERACH BOX-->
 	<section id="background" class="dir1-home-head">
 		<div class="container">
@@ -73,6 +75,7 @@
 					<form class="tourz-search-form">
 						<div class="input-field">
 							<input type="text" id="select-city" class="autocomplete">
+							
 							<label for="select-city">Enter city</label>
 						</div>
 						<div class="input-field">
@@ -103,9 +106,9 @@
 								<div class="dz-menu-inn">
 									<h4>Frontend Pages</h4>
 									<ul>
-										<li><a href="main.html">Home</a></li>
-										<li><a href="about-us.html"> About Us</a> </li>
-										<li><a href="contact-us.html"> Contact Us</a> </li>
+										<li><a href="main.jsp">Home</a></li>
+										<li><a href="about-us.jsp"> About Us</a> </li>
+										<li><a href="contact-us.jsp"> Contact Us</a> </li>
 									</ul>
 								</div>
 								<div class="dz-menu-inn">
@@ -183,10 +186,7 @@
 								<div class="input-field">
 									<input type="text" id="top-select-city" class="autocomplete">
 									<label for="top-select-city">Enter city</label>
-									<script>
-      var input = document.getElementById('autocomplete');
-      var autocomplete = new google.maps.places.Autocomplete(input);
-    </script>
+									
 								</div>
 								<div class="input-field">
 									<input type="text" id="top-select-search" class="autocomplete">
@@ -939,7 +939,7 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 	<script src="js/materialize.min.js" type="text/javascript"></script>
-	<script src="js/custom.js"></script>
+    <script src="js/custom.js"></script> 
 </body>
 
 
