@@ -31,7 +31,12 @@
 	   <script src="https://apis.google.com/js/platform.js" async defer></script>
    <meta name="google-signin-client_id" content="385893468268-dh0j2ng5po7n2e0jlna70pi76htmv06a.apps.googleusercontent.com">
 	
-	<script>
+	<script type="text/javascript">
+	
+	history.pushState(null,null,'user_login.jsp');
+	  window.addEventListener('popstate',function(event){
+	  history.pushState(null,null,'user_login.jsp');
+	  });
  // This is called with the results from from FB.getLoginStatus().
  function statusChangeCallback(response) {
  console.log('statusChangeCallback');

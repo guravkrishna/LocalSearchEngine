@@ -3,10 +3,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript">
+	  history.pushState(null,null,'admin-login.jsp');
+	  window.addEventListener('popstate',function(event){
+	  history.pushState(null,null,'admin-login.jsp');
+	  });
+	</script>
+</head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Admin Login</title>
 <body>
-
 
 <%@include file="header.html" %>
 
@@ -34,13 +40,13 @@
 					<form class="s12" action="AdminSession.jsp" method="post">
 						<div>
 							<div class="input-field s12">
-								<input type="text" name="uname" data-ng-model="name1" class="validate">
+								<input type="text" name="uname" data-ng-model="name1" class="validate" required>
 								<label>User name</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="password" name="pwd" class="validate">
+								<input type="password" name="pwd" class="validate" required>
 								<label>Password</label>
 							</div>
 						</div>
