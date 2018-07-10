@@ -157,7 +157,7 @@
 								<div class="dz-menu-inn lat-menu">
 									<h4>Admin Panel Pages</h4>
 									<ul>
-										<li><a target="_blank" href="admin.jsp"> Admin</a> </li>
+										<li><a target="_blank" href="admin.jsp">Admin</a> </li>
 										<li><a target="_blank" href="admin-all-listing1.jsp"> All Listing</a> </li>
 										<li><a target="_blank" href="admin-all-users.html"> All Users</a> </li>
 										<li><a target="_blank" href="admin-analytics.html"> Analytics</a> </li>
