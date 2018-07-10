@@ -47,11 +47,11 @@ public class LoginServlet extends HttpServlet {
                 String password=request.getParameter("passw");  
                   
                 
-                if(name.equals("tricky") && password.equals("tricky@123") ){  
-               
-                HttpSession session=request.getSession();  
-                session.setAttribute("email",name);  
-                request.getRequestDispatcher("Useradmin.jsp").include(request, response);
+                if(name.equals("tricky") && password.equals("tricky@123") )
+                {  
+	                HttpSession session=request.getSession();  
+	                session.setAttribute("email",name);  
+	                request.getRequestDispatcher("Useradmin.jsp").include(request, response);
                 }  
                 else{  
                     

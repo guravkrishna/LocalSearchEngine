@@ -31,9 +31,13 @@
 		
 	<script src="/test/application.js" type="text/javascript"></script>
 	 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
-  
-	
-	
+ 
+ <script type="text/javascript">
+history.pushState(null,null,'main.jsp');
+window.addEventListener('popstate',function(event){
+history.pushState(null,null,'main.jsp');
+});
+</script>
 </head>
 
 <body>
