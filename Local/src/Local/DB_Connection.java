@@ -13,7 +13,7 @@ public class DB_Connection {
 		 Connection connection=null;
 		try {
 		  Class.forName("com.mysql.jdbc.Driver");              
-		  connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/justdial","root", "root");
+		  connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/localsearchengine","root", "root");
 		} catch (Exception e) {
 		  System.out.println(e);
 		}

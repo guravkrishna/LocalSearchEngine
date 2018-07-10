@@ -59,7 +59,7 @@
 						<ul>
 							<li><a href="register.html">Register</a> </li>
 							<li><a href="user_login.jsp">Sign In</a> </li>
-							<li><a href="db-listing-add.jsp"><i class="fa fa-plus" aria-hidden="true"></i> Add Listing</a> </li>
+							<li><a href="User_free_listing.jsp"><i class="fa fa-plus" aria-hidden="true"></i> Add Listing</a> </li>
 						</ul>
 					</div>
 				</div>
@@ -202,7 +202,7 @@
 						<div class="v3-top-ri">
 							<ul>
 								<li><a href="user_login.jsp" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Sign In</a> </li>
-								<li><a href="db-listing-add.jsp" class="v3-add-bus"><i class="fa fa-plus" aria-hidden="true"></i> Add Listing</a> </li>
+								<li><a href="User_free_listing.jsp" class="v3-add-bus"><i class="fa fa-plus" aria-hidden="true"></i> Add Listing</a> </li>
 							</ul>
 						</div>
 					</div>

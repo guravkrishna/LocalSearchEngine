@@ -224,4 +224,24 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Free_Listing</display-name>
+    <servlet-name>Free_Listing</servlet-name>
+    <servlet-class>Local.Free_Listing</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Free_Listing</servlet-name>
+    <url-pattern>/Free_Listing</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>User_Free_Category_Listing</display-name>
+    <servlet-name>User_Free_Category_Listing</servlet-name>
+    <servlet-class>Local.User_Free_Category_Listing</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>User_Free_Category_Listing</servlet-name>
+    <url-pattern>/User_Free_Category_Listing</url-pattern>
+  </servlet-mapping>
 </web-app>
