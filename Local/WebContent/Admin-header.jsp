@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<!-- Mirrored from rn53themes.net/themes/demo/directory/admin-ads.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 02 Jul 2018 05:14:04 GMT -->
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-	<title>Indias Best Local Search Engine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Indias Best Local Search Engine</title>
 	<!-- META TAGS -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,10 +31,32 @@
 	<script src="js/materialize.min.js" type="text/javascript"></script>
 	<script src="js/custom.js"></script>
 </head>
-
 <body>
-	
-	<!--== MAIN CONTRAINER ==-->
+   <!-- <div id="preloader">
+		<div id="status">&nbsp;</div>
+	</div> -->
+	<%@page import="java.sql.DriverManager"%>
+	<%@page import="java.sql.ResultSet"%>
+	<%@page import="java.sql.Statement"%>
+	<%@page import="java.sql.Connection"%>
+	<%
+		String id = request.getParameter("id");
+		String driver = "com.mysql.jdbc.Driver";
+		String connectionUrl = "jdbc:mysql://localhost:3306/";
+		String database = "localsearchengine";
+		String userid = "root";
+		String password = "root";
+		try {
+				Class.forName(driver);
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				}
+			Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+	%>                                                               
+      
+  <!--== MAIN CONTRAINER ==-->
 	<div class="container-fluid sb1">
 		<div class="row">
 			<!--== LOGO ==-->
@@ -63,7 +85,25 @@
 					<li><a href="admin-notifications.html"><i class="fa fa-bell-o"></i>Notifications</a> </li>
 					<li><a href="#" class="waves-effect"><i class="fa fa-undo" aria-hidden="true"></i> Backup Data</a> </li>
 					<li class="divider"></li>
-					<li><a href="#" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in" aria-hidden="true"></i>Logout</a> </li>
+					<%
+					    try{
+							connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+							statement=connection.createStatement();
+							String sql ="select * from signup";
+							// select * from listing where id='"+search+"' or first_name like '%"+search+"%' ; 
+							resultSet = statement.executeQuery(sql);
+							if(resultSet.next()){												
+	                 %>
+	                   <li><a href="ChangePassword.jsp"><i class="fa fa-sign-in" aria-hidden="true"></i>Change Password</a></li>
+					   <li><a href="AdminLogoutServlet"><i class="fa fa-sign-in" aria-hidden="true"></i>Logout</a></li>
+					
+					<%
+							}
+							connection.close();
+							} catch (Exception e) {
+							e.printStackTrace();
+							}
+					%>							
 				</ul>
 			</div>
 		</div>
@@ -83,22 +123,16 @@
 					<div class="sb2-13">
 						<ul class="collapsible" data-collapsible="accordion">
 							<li><a href="admin.jsp" class="menu-active"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
-							<li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-list-ul" aria-hidden="true"></i>Business Management</a>
-								<div class="collapsible-body left-sub-menu">
-									<ul>
-										<li><a href="adminbusiness.jsp">Add New Business</a> </li>
-										<li><a href="showadminbusiness.jsp">All Business</a> </li>
-										
-							          <div class="collapsible-body left-sub-menu"></div> 
-						
-									    <ul>
-										   <li><a href="PhotoGallary.html">Photo</a></li>
-										   <li><a href="#">Logo</a></li>
-										   <li><a href="Admin-Video.html">Video</a></li>
-										</ul>
-									</ul>
-								</div>
-							</li>
+							<li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-list-ul" aria-hidden="true"></i>Listing Management</a>
+							<div class="collapsible-body left-sub-menu">
+								<ul>
+									<li><a href="admin-all-listing.jsp">All Free listing</a></li>
+									<li><a href="#">Add New Free listing</a></li>
+									<li><a href="#">All Paid listing</a></li>
+									<li><a href="#">Add New Paid listing</a></li>
+								</ul>
+							</div>
+						</li>
 							<li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-list-ul" aria-hidden="true"></i>Member Management</a>
 								<div class="collapsible-body left-sub-menu">
 									<ul>
@@ -115,38 +149,12 @@
 									</ul>
 							    </div>
 							</li>
-							
-							<li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-list-ul" aria-hidden="true"></i> Listing</a>
+
+						<li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-list-ul" aria-hidden="true"></i>Package</a>
 							<div class="collapsible-body left-sub-menu">
 								<ul>
-									<li><a href="admin-all-listing1.jsp">All listing</a> </li>
-									<li><a href="admin-list-add.jsp">Add New listing</a> </li>
-									<li><a href="#">All listing Categories</a> </li>
-									<li><a href="#">Add listing Categories</a> </li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-list-ul" aria-hidden="true"></i> Category</a>
-							<div class="collapsible-body left-sub-menu">
-								<ul>
-									<li><a href="showcategory.jsp">All Category</a> </li>
-									<li><a href="admincategory.jsp">Add New Category</a> </li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-list-ul" aria-hidden="true"></i>Sub-Category</a>
-							<div class="collapsible-body left-sub-menu">
-								<ul>
-									<li><a href="showsubcategory.jsp">All Sub-Category</a> </li>
-									<li><a href="adminsubcategory.jsp">Add New Sub-Category</a> </li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-list-ul" aria-hidden="true"></i>Product</a>
-							<div class="collapsible-body left-sub-menu">
-								<ul>
-									<li><a href="#">All Product</a> </li>
-									<li><a href="adminproduct.jsp">Add New Product</a> </li>
+									<li><a href="#">Free</a> </li>
+									<li><a href="#">Paid</a> </li>
 								</ul>
 							</div>
 						</li>
@@ -167,8 +175,7 @@
 						<li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-list-ul" aria-hidden="true"></i>Review and Ratings Management</a>
 							 <div class="collapsible-body left-sub-menu">
 								<ul>
-									<li><a href="admin-all-review-rating.jsp">List Of Review and Rating</a> </li>
-									<li><a href="admin-search-particular-review-rating.jsp">Search Review and Rating</a> </li>
+									<li><a href="admin-all-review-rating.jsp">View Review and Rating</a> </li>
 								</ul>
 							</div>
 						</li>
@@ -188,8 +195,6 @@
 							<div class="collapsible-body left-sub-menu">
 							   <ul>
 									<li><a href="admin-all-order.jsp">View Order</a></li>
-									<li><a href="#">Export Order</a> </li>
-									<li><a href="admin-search-order.jsp">Search Order</a> </li>
 								</ul>
 							</div>
 						</li>
@@ -197,8 +202,6 @@
 							<div class="collapsible-body left-sub-menu">
 							   <ul>
 									<li><a href="admin-all-transaction.jsp">View Transaction</a> </li>
-									<li><a href="#">Export Transaction</a> </li>
-									<li><a href="admin-search-particular-transaction.jsp">Search Transaction</a> </li>
 								</ul>
 							</div>
 						</li>
@@ -251,7 +254,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
-			
+	</div>   
 </body>
 </html>

@@ -6,47 +6,11 @@
 	
 </head>
 
-
 <body>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
-		
-		<%
-		String email=request.getParameter("email");
-		System.out.println(email);
-String driverName = "com.mysql.jdbc.Driver";
-String connectionUrl = "jdbc:mysql://localhost:3306/";
-String dbName = "localsearchengine";
-String userId = "root";
-String password = "root";
 
-try {
-Class.forName(driverName);
-} catch (ClassNotFoundException e) {
-e.printStackTrace();
-}
-
-Connection connection = null;
-Statement statement = null;
-ResultSet resultSet = null;
-%>
-<%
-try{ 
-connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
-statement=connection.createStatement();
-String sql ="SELECT * from listing where email="+email;
-System.out.println(sql);
-resultSet = statement.executeQuery(sql);
- %>
-	 
-
-	<!-- <div id="preloader">
-		<div id="status">&nbsp;</div>
-	</div> -->
+    <%@include file="Admin-header.jsp" %>
 	<!--== MAIN CONTRAINER ==-->
-	<%@include file="Admin_header.html" %>
+	
 			<!--== BODY INNER CONTAINER ==-->
 			<div class="sb2-2">
 				<!--== breadcrumbs ==-->
@@ -77,7 +41,6 @@ resultSet = statement.executeQuery(sql);
 						<div class="hom-cre-acc-left hom-cre-acc-right">
 							<div class="">
 								<form class="" action="./AddFreeCategory" method="post" enctype="multipart/form-data">
-								<input type="hidden" name="email" value="<%=resultSet.getString("email") %>">
 									
 									<div class="row">
 										<div class="input-field col s12"> 
@@ -91,13 +54,12 @@ resultSet = statement.executeQuery(sql);
 												<option value="Travel and Transport">Travel and Transport</option>
 												<option value="Packers and Movers">Packers and Movers</option>
 												<option value="Gyms and Fitness">Gyms and Fitness</option>
-											<option value="Yoga Classes">Yoga Classes</option>
+											    <option value="Yoga Classes">Yoga Classes</option>
 												<option value="Health and Fitness">Health and Fitness</option>
 												<option value="">Other</option>
 												
 											</select>  
 											
-										
 										 </div>
 									</div>  
 									
@@ -113,35 +75,6 @@ resultSet = statement.executeQuery(sql);
 											<label for="first_name">Sub Category</label>
 										</div>
 										</div>
-									<div class="row">
-										<div class="input-field col s12">
-										<% while(resultSet.next()){
-	%>
-											 <input id="email" type="email" class="validate" name="email" value="<%=resultSet.getString(6) %> ">
-											
-											<label for="email">Email</label> 
-												<% 
-}
-	
-}
-catch (Exception e) {
-e.printStackTrace();
-}
-
-%>
-											
-										</div>
-									</div>
-									<div class="row">
-										<div class="input-field col s12">
-											<input id="list_addr" type="text" class="validate" name="add">
-											<label for="list_addr">Address</label>
-										</div>
-									</div>
-							
-								
-								
- 		<div class="row" >
 										<div class="input-field col s12">
 											 <select name="daynames" multiple>
 												<option value="">Opening Days</option>
