@@ -12,6 +12,7 @@
 <title>Change Password</title>
 </head>
 <body>
+
      <%
         String pass=request.getParameter("cpass");
 		String pass1=request.getParameter("npass");
@@ -24,21 +25,22 @@
 		String query="";
 		String query2="";
 		
-		HttpSession hs=request.getSession(false);
-		String s=(String)hs.getAttribute("email");
+		
 		//System.out.println(s);
 		
 		  try
 		  {
+			  HttpSession hs=request.getSession(true);
+			  String s=(String)hs.getAttribute("mail");
 			con = JDBCHelper.getConnection();
-			query="select password from signup where email=? and pwd=?";
+			query="select pass from signup where mail=? and pass=?";
 		    ps=con.prepareStatement(query);
 		    ps.setString(1, s);
 		    ps.setString(2, pass);
 		    rs=ps.executeQuery();
 		    if(rs.next())
 		    {
-		    	query2="update signup set password=? where  email=?";
+		    	query2="update signup set pass=? where  mail=?";
 		    	ps2=con.prepareStatement(query2);
 		    	ps2.setString(1, pass1);
 		    	//ps.setString(2, pass);

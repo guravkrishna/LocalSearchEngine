@@ -40,13 +40,13 @@
 					<form class="s12" action="AdminSession.jsp" method="post">
 						<div>
 							<div class="input-field s12">
-								<input type="email" name="uname" data-ng-model="name1" title="Enter Correct User name" class="validate" required>
+								<input type="email" name="mail" data-ng-model="name1" title="Enter Correct User name" class="validate" required>
 								<label>User name</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="password" name="pwd" class="validate" required>
+								<input type="password" name="pass" class="validate" required>
 								<label>Password</label>
 							</div>
 						</div>

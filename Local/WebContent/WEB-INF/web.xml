@@ -66,6 +66,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>AdminLogoutServlet</display-name>
+    <servlet-name>AdminLogoutServlet</servlet-name>
+    <servlet-class>Local.AdminLogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLogoutServlet</servlet-name>
+    <url-pattern>/AdminLogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>InsertServlet1</display-name>
     <servlet-name>InsertServlet1</servlet-name>
     <servlet-class>Local.InsertServlet1</servlet-class>
