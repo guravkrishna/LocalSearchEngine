@@ -33,7 +33,7 @@ public class LogoutServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(false);
 	     
 		
 	            session.invalidate();

@@ -1,14 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
+<!DOCTYPE html>
+<html lang="en">
 <body>
 	
-	<%@include file="header.html" %>
+	<%@include file="header.html"%>
 	
 	<section class="dir-alp dir-pa-sp-top">
 		<div class="container">
@@ -31,7 +25,7 @@
 							<ul>
 								<!--==========NEARBY LISTINGS============-->
 								<li>
-									<a href="listing-details.html">
+									<a href="listing-details.jsp">
 										<div class="list-left-near lln1"> <img src="images/services/s1.jpg" alt="" /> </div>
 										<div class="list-left-near lln2">
 											<h5>Property Getaways</h5> <span>City: illunois, United States</span> </div>
@@ -41,7 +35,7 @@
 								<!--==========END NEARBY LISTINGS============-->
 								<!--==========NEARBY LISTINGS============-->
 								<li>
-									<a href="listing-details.html">
+									<a href="listing-details.jsp">
 										<div class="list-left-near lln1"> <img src="images/services/s2.jpg" alt="" /> </div>
 										<div class="list-left-near lln2">
 											<h5>Home Trends</h5> <span>City: illunois, United States</span> </div>
@@ -51,7 +45,7 @@
 								<!--==========END NEARBY LISTINGS============-->
 								<!--==========NEARBY LISTINGS============-->
 								<li>
-									<a href="listing-details.html">
+									<a href="listing-details.jsp">
 										<div class="list-left-near lln1"> <img src="images/services/s3.jpg" alt="" /> </div>
 										<div class="list-left-near lln2">
 											<h5>Security System</h5> <span>City: illunois, United States</span> </div>
@@ -61,7 +55,7 @@
 								<!--==========END NEARBY LISTINGS============-->
 								<!--==========NEARBY LISTINGS============-->
 								<li>
-									<a href="listing-details.html">
+									<a href="listing-details.jsp">
 										<div class="list-left-near lln1"> <img src="images/services/s4.jpg" alt="" /> </div>
 										<div class="list-left-near lln2">
 											<h5>Distance Educations</h5> <span>City: illunois, United States</span> </div>
@@ -71,7 +65,7 @@
 								<!--==========END NEARBY LISTINGS============-->
 								<!--==========NEARBY LISTINGS============-->
 								<li>
-									<a href="listing-details.html">
+									<a href="listing-details.jsp">
 										<div class="list-left-near lln1"> <img src="images/services/s5.jpg" alt="" /> </div>
 										<div class="list-left-near lln2">
 											<h5>Fresh Cake Shops</h5> <span>City: illunois, United States</span> </div>
@@ -81,7 +75,7 @@
 								<!--==========END NEARBY LISTINGS============-->
 								<!--==========NEARBY LISTINGS============-->
 								<li>
-									<a href="listing-details.html">
+									<a href="listing-details.jsp">
 										<div class="list-left-near lln1"> <img src="images/services/s6.jpg" alt="" /> </div>
 										<div class="list-left-near lln2">
 											<h5>Chicago Automobiles</h5> <span>City: illunois, United States</span> </div>
@@ -91,7 +85,7 @@
 								<!--==========END NEARBY LISTINGS============-->
 								<!--==========NEARBY LISTINGS============-->
 								<li>
-									<a href="listing-details.html">
+									<a href="listing-details.jsp">
 										<div class="list-left-near lln1"> <img src="images/services/s7.jpg" alt="" /> </div>
 										<div class="list-left-near lln2">
 											<h5>Bike Service Centers</h5> <span>City: illunois, United States</span> </div>
@@ -204,7 +198,7 @@
 								<div class="row span-none">
 									<h3 style="text-align:center"> List Of Popular Hospital </h3><br>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/1.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$720</span> </div>
 												<div class="list-mig-lc-con">
@@ -217,7 +211,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/3.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$380</span> </div>
 												<div class="list-mig-lc-con">
@@ -230,7 +224,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/2.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -243,7 +237,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/4.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$720</span> </div>
 												<div class="list-mig-lc-con">
@@ -256,7 +250,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/5.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$380</span> </div>
 												<div class="list-mig-lc-con">
@@ -269,7 +263,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/6.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -282,7 +276,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/7.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -295,7 +289,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/8.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -308,7 +302,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/9.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -321,7 +315,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/10.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -334,7 +328,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/11.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -347,7 +341,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/12.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -360,7 +354,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/13.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -373,7 +367,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/14.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -386,7 +380,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/15.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -399,7 +393,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/1.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$720</span> </div>
 												<div class="list-mig-lc-con">
@@ -412,7 +406,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/3.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$380</span> </div>
 												<div class="list-mig-lc-con">
@@ -425,7 +419,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/2.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -438,7 +432,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/4.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$720</span> </div>
 												<div class="list-mig-lc-con">
@@ -451,7 +445,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/5.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$380</span> </div>
 												<div class="list-mig-lc-con">
@@ -464,7 +458,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/6.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -477,7 +471,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/7.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -490,7 +484,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/8.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -503,7 +497,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/9.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -516,7 +510,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/10.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -529,7 +523,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/11.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -542,7 +536,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/12.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -555,7 +549,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/13.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -568,7 +562,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/14.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -581,7 +575,7 @@
 										</a>
 									</div>
 									<div class="col-md-4">
-										<a href="listing-details.html">
+										<a href="listing-details.jsp">
 											<div class="list-mig-like-com com-mar-bot-30">
 												<div class="list-mig-lc-img"> <img src="images/listing/15.jpg" alt=""> <span class="home-list-pop-rat list-mi-pr">$420</span> </div>
 												<div class="list-mig-lc-con">
@@ -616,7 +610,9 @@
 			</div>
 		</div>
 	</section>
-	
-	<%@include file="footer.html" %>
+	<!--MOBILE APP-->
+	<%@include file="footer.html"%>
 </body>
+
+
 </html>

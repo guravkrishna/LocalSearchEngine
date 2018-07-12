@@ -3,6 +3,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script src="https://cdn.pubnub.com/pubnub-3.7.13.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>
+if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  }
+else if (Notification.permission === "granted") {
+    var notification = new Notification(message);
+  }
+else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      if (permission === "granted") {
+        var notification = new Notification("Hi there!");
+      }
+    });
+  }
+</script>
 </head>
 <body>
 	<%@include file="user_header.html" %>
@@ -171,6 +188,8 @@
 										<button type=submit value="Submit">Submit</button>
 									</div>
 								</form>
+								
+<button onclick="notifyMe()">Notify me!</button>
 							</div>
 						</div>
 									</div>

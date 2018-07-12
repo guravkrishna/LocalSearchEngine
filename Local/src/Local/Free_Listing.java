@@ -73,7 +73,7 @@ public class Free_Listing extends HttpServlet {
 		   	       
 		   	   
 		   	ps.execute();
-		       request.getRequestDispatcher("main.html").include(request, response);
+		       request.getRequestDispatcher("User_free_Category.jsp").include(request, response);
 			}catch(SQLException e){
 		   				e.printStackTrace();
 		   			} 

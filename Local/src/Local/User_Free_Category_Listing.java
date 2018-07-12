@@ -57,6 +57,7 @@ public class User_Free_Category_Listing extends HttpServlet {
 			            if(!fileSaveDir.exists()){
 			                fileSaveDir.mkdir();
 			            }
+			            int year;
 			            
 			            String category=request.getParameter("category");  
 		        		String bname=request.getParameter("business_name");
@@ -73,6 +74,7 @@ public class User_Free_Category_Listing extends HttpServlet {
 		                String closetime=request.getParameter("close");
 		                String packagename=request.getParameter("btype");
 		                String listdec=request.getParameter("description");
+		                year=Integer.parseInt(request.getParameter("year"));
 		                String website=request.getParameter("weblink");
 		                String facelink=request.getParameter("facelink");
 		                String googlelink=request.getParameter("googlelink");
@@ -116,7 +118,7 @@ public class User_Free_Category_Listing extends HttpServlet {
 						
 		   	        // @SuppressWarnings("unused")
 		   	         
-		   	         String query = "INSERT into category(category, title, subcategory, mailid, address, day, open, close, package, content, linkone, linktwo, linkthree, map, coverimg, logo, img, bimg, gimg, video) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		   	         String query = "INSERT into category(category, title, subcategory, email, address, day, open, close, package, content, linkone, linktwo, linkthree, map, coverimg, logo, img, bimg, gimg, video) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		   	         ps=connection.prepareStatement(query);
 		   	        
 		   	         ps.setString(1, category);
@@ -129,28 +131,29 @@ public class User_Free_Category_Listing extends HttpServlet {
 		   	         ps.setString(8, closetime);
 		   	         ps.setString(9, packagename);
 		   	         ps.setString(10, listdec);
-		   	         ps.setString(11, website);
-		   	         ps.setString(12, facelink);
-		   	         ps.setString(13, googlelink);
-		   	         ps.setString(14, map);
+		   	         ps.setLong(11, year);
+		   	         ps.setString(12, website);
+		   	         ps.setString(13, facelink);
+		   	         ps.setString(14, googlelink);
+		   	         ps.setString(15, map);
 		   	         
 		   	         String filePath= fileName ;
-		   	         ps.setString(15,filePath);
+		   	         ps.setString(16,filePath);
 		   	         
 		   	         String filePath1= fileName1 ;
-		   	         ps.setString(16,filePath1);
+		   	         ps.setString(17,filePath1);
 		        
 		   	         String filePath2= fileName2 ;
-		   	         ps.setString(17,filePath2);
+		   	         ps.setString(18,filePath2);
 		   	         
 		   	         String filePath3= fileName3 ;
-		   	         ps.setString(18,filePath3);
+		   	         ps.setString(19,filePath3);
 		   	         
 		   	         String filePath4= fileName4 ;
-		   	         ps.setString(19,filePath4);
+		   	         ps.setString(20,filePath4);
 		        
 		   	         String filePath5= fileName5 ;
-		   	         ps.setString(20,filePath5);
+		   	         ps.setString(21,filePath5);
 		 
 		   	   
 		   	 

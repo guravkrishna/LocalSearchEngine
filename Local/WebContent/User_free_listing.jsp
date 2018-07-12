@@ -10,6 +10,14 @@ function myFunction() {
     alert("click Ok to Submit your listing");
 }
 </script>
+<script>
+function validateForm() {
+    var x = document.forms["listing"]["list_name"]["first_name"]["last_name"]["list_phone"]["email"]["list_addr"].value;
+    if (x == "") {
+        return false;
+    }
+}
+</script>
 </head>
 <body>
 		<%@include file="header.html" %>
@@ -77,47 +85,48 @@ function myFunction() {
 						</div>
 						<div class="hom-cre-acc-left hom-cre-acc-right">
 							<div class="">
-								<form  action="Free_Listing" method="post">
+								<form  action="Free_Listing" method="post" name="listing">
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="list_name" name="list_name" type="text" class="validate">
+											<input id="list_name" name="list_name" type="text" class="validate" required>
 											<label for="list_name">Listing Title</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s6">
-											<input id="first_name" name="first_name" type="text" class="validate">
+											<input id="first_name" name="first_name" type="text" class="validate" required>
 											<label for="first_name">First Name</label>
 										</div>
 										<div class="input-field col s6">
-											<input id="last_name" name="last_name" type="text" class="validate">
+											<input id="last_name" name="last_name" type="text" class="validate" required>
 											<label for="last_name">Last Name</label>
 										</div>
 									</div>
 									
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" name="list_phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10"  class="validate"/>
+											<input type="text" name="list_phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10"  class="validate" required/>
 											
 											<label for="list_phone">Contact Number</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="email" name="email" type="email" class="validate">
+											<input id="email" name="email" type="email" class="validate" required>
 											<label for="email">Email ID</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="city" name="city" type="text" class="validate">
+											<input id="city" name="city" type="text" class="validate" required>
 											<label for="list_addr">City</label>
 										</div>
 									</div>
 														
-									<div class="row">
-											<button type="submit" value="Submit" onclick="myFunction()">Submit</button>
-									</div>
+									<br><center>						
+									<div class="row" style="width:40%";>
+										<input type="submit" value="submit" onsubmit="return validateForm()"/>
+									</div></center>	
 								</form>
 							</div>
 						</div>

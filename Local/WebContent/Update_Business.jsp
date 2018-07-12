@@ -24,69 +24,35 @@ function validateForm() {
 </script>
 </head>
 <body>
-	<%@include file="header.html" %>
+	<%@include file="user_header.html" %>
 		
-		<section>
-		<div class="tz">
-			<!--LEFT SECTION-->
-			<div class="tz-l">
-				<div class="tz-l-1">
+		
+		<div class="sb2-2">
+				<!--== breadcrumbs ==-->
+				<div class="sb2-2-2">
 					<ul>
-						<li><img src="images/db-profile.jpg" alt="" /> </li>
-						<li><span>80%</span> profile compl</li>
-						<li><span>18</span> Notifications</li>
+						<li><a href="main.jsp"><i class="fa fa-home" aria-hidden="true"></i> Home</a> </li>
+						<li class="active-bre"><a href="#"> Add Product</a> </li>
+						<li class="page-back"><a href="#"><i class="fa fa-backward" aria-hidden="true"></i> Back</a> </li>
 					</ul>
 				</div>
-				<div class="tz-l-2">
-					<ul>
-						<li>
-							<a href="dashboard.html"><img src="images/icon/dbl1.png" alt="" /> My Dashboard</a>
-						</li>
-						<li>
-							<a href="db-all-listing.html"><img src="images/icon/dbl2.png" alt="" /> All Listing</a>
-						</li>
-						<li>
-							<a href="db-listing-add.html" class="tz-lma"><img src="images/icon/dbl3.png" alt="" /> Add New Listing</a>
-						</li>
-						<li>
-							<a href="db-message.html"><img src="images/icon/dbl14.png" alt="" /> Messages(12)</a>
-						</li>
-						<li>
-							<a href="db-review.html"><img src="images/icon/dbl13.png" alt="" /> Reviews(05)</a>
-						</li>
-						<li>
-							<a href="db-my-profile.html"><img src="images/icon/dbl6.png" alt="" /> My Profile</a>
-						</li>
-						<li>
-							<a href="db-post-ads.html"><img src="images/icon/dbl11.png" alt="" /> Ad Summary</a>
-						</li>
-						<li>
-							<a href="db-payment.html"><img src="images/icon/dbl9.png" alt=""> Check Out</a>
-						</li>
-						<li>
-							<a href="db-invoice-all.html"><img src="images/icon/db21.png" alt="" /> Invoice</a>
-						</li>						
-						<li>
-							<a href="db-claim.html"><img src="images/icon/dbl7.png" alt="" /> Claim & Refund</a>
-						</li>
-						<li>
-							<a href="db-setting.html"><img src="images/icon/dbl210.png" alt="" /> Setting</a>
-						</li>
-						<li>
-							<a href="#!"><img src="images/icon/dbl12.png" alt="" /> Log Out</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<!--CENTER SECTION-->
-			<div class="tz-2">
-				<div class="tz-2-com tz-2-main">
-					<h4>Submit Listings</h4>
-					<div class="db-list-com tz-db-table">
-						<div class="ds-boar-title">
-							<h2>Add New Listings</h2>
-							<p>All the Lorem Ipsum generators on the All the Lorem Ipsum generators on the</p>
-						</div>
+				<div class="tz-2 tz-2-admin">
+					<div class="tz-2-com tz-2-main">
+						<h4>Add New Product</h4> <a class="dropdown-button drop-down-meta drop-down-meta-inn" href="#" data-activates="dr-list"><i class="material-icons">more_vert</i></a>
+						<ul id="dr-list" class="dropdown-content">
+							<li><a href="#!">Add New</a> </li>
+							<li><a href="#!">Edit</a> </li>
+							<li><a href="#!">Update</a> </li>
+							<li class="divider"></li>
+							<li><a href="#!"><i class="material-icons">delete</i>Delete</a> </li>
+							<li><a href="#!"><i class="material-icons">subject</i>View All</a> </li>
+							<li><a href="#!"><i class="material-icons">play_for_work</i>Download</a> </li>
+						</ul>
+						<!-- Dropdown Structure -->
+						<div class="split-row">
+							<div class="col-md-12">
+								<div class="box-inn-sp ad-inn-page">
+									<div class="tab-inn ad-tab-inn">
 						<div class="hom-cre-acc-left hom-cre-acc-right">
 							<div class="">
 								<form class="" name="upload_form" action="User_Free_Category_Listing" method="post" enctype="multipart/form-data">
@@ -152,12 +118,13 @@ function validateForm() {
 												<option value="Saturday">Saturday</option>
 												<option value="Sunday">Sunday</option>
 											</select> 
-											
+											<!-- <input type="text" name="day"> -->
 										</div>
 									</div>
 									
 									<div class="row">
 									<div class="input-field col s6">
+									<!-- <input type="text" name="opentime"> -->
 										 <select name="open">
 											<option value="" unable selected>Opening Time</option>
 											<option value="12:00 AM">12:00 AM</option>
@@ -227,9 +194,10 @@ function validateForm() {
 												<option value="3 Month">3 Month</option>
 												<option value="6 Month">6 Month</option>
 												<option value="1 Year">1 Year</option>
-												<option value="2 Year">2 Year</option>
+												<!-- <option value="2 Year">2 Year</option> -->
 											</select>  
-						
+											<!-- <input type="text" name="btype"> -->
+										
 										 </div>
 									</div> 
 									
@@ -356,7 +324,7 @@ function validateForm() {
 										<div class="file-field input-field">
 											<div class="tz-up-btn"> <span>File</span>
 												 <input id="video_file" name="vid1" type="file">
-												<input type="file" name="vid1" multiple> </div>
+												<!-- <input type="file" name="vid1" multiple> --> </div>
 											<div class="file-path-wrapper db-v2-pg-inp">
 												<input class="file-path validate" type="text"> 
 											</div>
@@ -366,101 +334,9 @@ function validateForm() {
 									
 										<br><center>						
 									<div class="row" style="width:40%";>
-										<input type="submit" value="submit" onsubmit="return validateForm()"/>
+										<input type="submit" value="Update" onsubmit="return validateForm()"/>
 									</div></center>	
 								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--RIGHT SECTION-->
-			<div class="tz-3">
-				<h4>Notifications(18)</h4>
-				<ul>
-					<li>
-						<a href="#!"> <img src="images/icon/dbr1.jpg" alt="" />
-							<h5>Joseph, write a review</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="images/icon/dbr2.jpg" alt="" />
-							<h5>14 New Messages</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="images/icon/dbr3.jpg" alt="" />
-							<h5>Ads expairy soon</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="images/icon/dbr4.jpg" alt="" />
-							<h5>Post free ads - today only</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="images/icon/dbr5.jpg" alt="" />
-							<h5>listing limit increase</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="images/icon/dbr6.jpg" alt="" />
-							<h5>mobile app launch</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="images/icon/dbr7.jpg" alt="" />
-							<h5>Setting Updated</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-					<li>
-						<a href="#!"> <img src="images/icon/dbr8.jpg" alt="" />
-							<h5>Increase listing viewers</h5>
-							<p>All the Lorem Ipsum generators on the</p>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</section>
-		
-		
-		<!-- <div class="sb2-2">
-				== breadcrumbs ==
-				<div class="sb2-2-2">
-					<ul>
-						<li><a href="main.jsp"><i class="fa fa-home" aria-hidden="true"></i> Home</a> </li>
-						<li class="active-bre"><a href="#"> Add Product</a> </li>
-						<li class="page-back"><a href="#"><i class="fa fa-backward" aria-hidden="true"></i> Back</a> </li>
-					</ul>
-				</div>
-				<div class="tz-2 tz-2-admin">
-					<div class="tz-2-com tz-2-main">
-						<h4>Add New Product</h4> <a class="dropdown-button drop-down-meta drop-down-meta-inn" href="#" data-activates="dr-list"><i class="material-icons">more_vert</i></a>
-						<ul id="dr-list" class="dropdown-content">
-							<li><a href="#!">Add New</a> </li>
-							<li><a href="#!">Edit</a> </li>
-							<li><a href="#!">Update</a> </li>
-							<li class="divider"></li>
-							<li><a href="#!"><i class="material-icons">delete</i>Delete</a> </li>
-							<li><a href="#!"><i class="material-icons">subject</i>View All</a> </li>
-							<li><a href="#!"><i class="material-icons">play_for_work</i>Download</a> </li>
-						</ul>
-						Dropdown Structure
-						<div class="split-row">
-							<div class="col-md-12">
-								<div class="box-inn-sp ad-inn-page">
-									<div class="tab-inn ad-tab-inn">
-						<div class="hom-cre-acc-left hom-cre-acc-right">
-							<div class="">
-								
 							</div>
 						</div>
 									</div>
@@ -472,10 +348,10 @@ function validateForm() {
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 
 
 
-	<%@include file="footer.html" %>
+	<%@include file="user_footer.html" %>
 </body>
 </html>

@@ -35,7 +35,7 @@
 	
 	history.pushState(null,null,'user_login.jsp');
 	  window.addEventListener('popstate',function(event){
-	  history.pushState(null,null,'user_login.jsp');
+	  history.pushState(null,null,'Useradmin.jsp');
 	  });
  // This is called with the results from from FB.getLoginStatus().
  function statusChangeCallback(response) {
@@ -67,7 +67,7 @@
  }
  window.fbAsyncInit = function() {
  FB.init({ 
- appId : '187110881957416',
+ appId : '2075970972618608',
  cookie : true, // enable cookies to allow the server to access 
  // the session
  xfbml : true, // parse social plugins on this page
@@ -169,13 +169,13 @@
 					<form class="s12" action="LoginServlet" method="post">
 						<div>
 							<div class="input-field s12">
-								<input type="text"name="email" data-ng-model="name1" class="validate">
+								<input type="text" name="email" data-ng-model="name1" class="validate" required>
 								<label>User name</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="password" name="passw" class="validate">
+								<input type="password" name="passw" class="validate" required>
 								<label>Password</label>
 							</div>
 						</div>

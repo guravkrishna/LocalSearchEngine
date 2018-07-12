@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
                 
                 if(name.equals("tricky") && password.equals("tricky@123") )
                 {  
-	                HttpSession session=request.getSession();  
+	                HttpSession session=request.getSession(true);  
 	                session.setAttribute("email",name);  
 	                request.getRequestDispatcher("Useradmin.jsp").include(request, response);
                 }  
