@@ -33,12 +33,13 @@
 	    rs=ps.executeQuery();
 	    if(rs.next())
 	    {
+	    	request.getSession(true);
 	    	session.setAttribute("uname",name);
-			response.sendRedirect("admin.html");
+			response.sendRedirect("admin.jsp");
 	    }
 	    else
 		{
-	    	session.invalidate();
+	    	//session.invalidate();
 	        out.print("Invalid User or Password");
            // request.setAttribute("errorMessage", "Invalid user or password");
             //RequestDispatcher rd = request.getRequestDispatcher("/admin-login.jsp");

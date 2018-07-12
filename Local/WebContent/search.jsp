@@ -52,7 +52,15 @@
     cursor: pointer;
 }
 </style>
-	
+<script type="text/javascript">
+function validateForm() {
+    var x = document.forms["searchform"]["searchf"].value;
+    if (x=="") {
+        alert("Enter ID/Name/Phone Number to search");
+        return false;
+    }
+}
+</script>
 </head>
 
 <body>
@@ -184,8 +192,8 @@
 					<div class="tz-2-com tz-2-main">
 						<h4>Listing</h4>
 						
-						<form action="search.jsp">
-						<span><input type="text" name="search"/></span>
+						<form action="search.jsp" name="searchform" onsubmit="return validateForm()">
+						<span><input type="text" name="searchf"/></span>
 						   <input type="submit" value="Search" class="button">
 						</form>   
 						  <!-- <a class="dropdown-button drop-down-meta drop-down-meta-inn" href="#" data-activates="dr-list"><i class="material-icons">more_vert</i></a>
@@ -207,15 +215,15 @@
 											<table class="table table-hover">
 												<thead>
 													<tr>
-														<th>ID</th>
-														<th>FirstName</th>
-														<th>LastName</th>
-														<th>Contact</th>
-														<th>Email</th>
-														<th>UserType</th>
-														<th>City</th>
+														<th>firstname</th>
+														<th>lastname</th>
+														<th>contact</th>
+														<th>email</th>
+														<th>usertype</th>
+														<th>city</th>
 														<th>View</th>
 														<th>Edit</th>
+														<th>Delete</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -252,19 +260,19 @@
 													try{
 													connection = DriverManager.getConnection(connectionUrl+database, userid, password);
 													statement=connection.createStatement();
-													String sql ="select * from listing where id='"+srch+"' or first_name  like '%"+srch+"%' or last_name like '%"+srch+"%' ";
+													String sql ="select * from listing l, category c where fname  like '%"+srch+"%' or lname like '%"+srch+"%' or phone like '%"+srch+"%' ";
 													// select * from listing where id='"+search+"' or name like '%"+search+"%' ; 
 													resultSet = statement.executeQuery(sql);
 													while(resultSet.next()){
 													%>
 													<tr>
-													<td><%=resultSet.getString("id") %></td>
-													<td><%=resultSet.getString("first_name") %></td>
-													<td><%=resultSet.getString("last_name") %></td>
-													<td><%=resultSet.getString("list_phone") %></td>
+													<%-- <td><%=resultSet.getString("id") %></td> --%>
+													<td><%=resultSet.getString("fname") %></td>
+													<td><%=resultSet.getString("lname") %></td>
+													<td><%=resultSet.getString("phone") %></td>
 													<td><%=resultSet.getString("email") %></td>
-													<td><%=resultSet.getString("list_type") %></td>
-													<td><%=resultSet.getString("choose_city") %></td>
+													<td><%=resultSet.getString("package") %></td>
+													<td><%=resultSet.getString("city") %></td>
 													<td><a href="admin-list-view.jsp?id=<%=resultSet.getString("id") %>"><input type="submit" value="View"/></td>
 													<td><a href="admin-list-edit.html"><input type="submit" value="Edit"/></td>
 													<td><a href="admin-list-delete.jsp"><input type="submit" value="Delete"/></td>

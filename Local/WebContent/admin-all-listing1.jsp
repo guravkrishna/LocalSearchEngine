@@ -53,6 +53,15 @@
 }
 </style>
 	
+<script type="text/javascript">
+function validateForm() {
+    var x = document.forms["mysearch"]["search"].value;
+    if (x=="") {
+        alert("Enter ID/Name/Phone Number to search");
+        return false;
+    }
+}
+</script>
 </head>
 
 <body>
@@ -151,8 +160,8 @@
 						<li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-tags" aria-hidden="true"></i> List Price</a>
 							<div class="collapsible-body left-sub-menu">
 								<ul>
-									<li><a href="admin-price.html">All List Price</a> </li>
-									<li><a href="admin-price-list.html">Add New Price</a> </li>
+									<li><a href="admin-price.html">All List Price</a></li>
+									<li><a href="admin-price-list.html">Add New Price</a></li>
 								</ul>
 							</div>
 						</li>
@@ -165,7 +174,7 @@
 							</div>
 						</li>
 						<li><a href="admin-setting.html"><i class="fa fa-cogs" aria-hidden="true"></i> Setting</a> </li>
-						<li><a href="admin-social-media.html"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Social Media</a> </li>
+						<li><a href="admin-social-media.html"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Social Media</a></li>
 						<li><a href="#" target="_blank"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a> </li>
 					</ul>
 				</div>
@@ -180,13 +189,18 @@
 						<li class="page-back"><a href="admin.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a> </li>
 					</ul>
 				</div>
+				
 				<div class="tz-2 tz-2-admin">
 					<div class="tz-2-com tz-2-main">
 						<h4>Listing</h4>
-					<form action="search.jsp">
+						
+					  <!--  <form class="app-search" action="search.jsp">
+					          <input type="text" placeholder="Search..." class="form-control"><a href="search.jsp"><i class="fa fa-search"></i></a> 
+				       </form> -->
+					<form name="mysearch" action="search.jsp" action="post" onsubmit="return validateForm()">
 						<span><input type="text" name="search"/></span>
 						   <input type="submit" value="Search" class="button">
-						</form>       
+						</form>   
 						   
 						  <!-- <a class="dropdown-button drop-down-meta drop-down-meta-inn" href="#" data-activates="dr-list"><i class="material-icons">more_vert</i></a>
 						<ul id="dr-list" class="dropdown-content">
@@ -226,10 +240,10 @@
 													<%@page import="java.sql.Statement"%>
 													<%@page import="java.sql.Connection"%>
 													<%
-													String id = request.getParameter("id");
+													//String email = request.getParameter("email");
 													String driver = "com.mysql.jdbc.Driver";
 													String connectionUrl = "jdbc:mysql://localhost:3306/";
-													String database = "jusdial";
+													String database = "localsearchengine";
 													String userid = "root";
 													String password = "root";
 													try {
@@ -246,27 +260,28 @@
 													<body>
 													
 													
-													<table border="1">
+													<!-- <table border="1"> -->
 													
 													<%
 													try{
 													connection = DriverManager.getConnection(connectionUrl+database, userid, password);
 													statement=connection.createStatement();
-													String sql ="select * from listing";
+													String sql ="SELECT * from listing l,category c";
+													//"SELECT * from listing l,category c where l.email=c.email";
 													// select * from listing where id='"+search+"' or first_name like '%"+search+"%' ; 
 													resultSet = statement.executeQuery(sql);
 													while(resultSet.next()){
 													%>
 													<tr>
-													<td><%=resultSet.getString("first_name") %></td>
-													<td><%=resultSet.getString("last_name") %></td>
-													<td><%=resultSet.getString("list_phone") %></td>
-													<td><%=resultSet.getString("email") %></td>
-													<td><%=resultSet.getString("list_type") %></td>
-													<td><%=resultSet.getString("choose_city") %></td>
-													<td><a href="admin-list-view.jsp?id=<%=resultSet.getString("id") %>"><input type="submit" value="View"/></td>
-													<td><a href="admin-list-edit.html"><input type="submit" value="Edit"/></td>
-													<td><a href="admin-list-delete.jsp"><input type="submit" value="Delete"/></td>
+													<td><%=resultSet.getString("fname") %></td> <!-- First Name -->
+													<td><%=resultSet.getString("lname") %></td> <!-- Last name -->
+													<td><span class="label label-primary"><%=resultSet.getString("phone")%></span></td> <!-- contact -->
+													<td><%=resultSet.getString("email") %></td>  <!-- email -->
+													<td><span class="label label-danger"><%=resultSet.getString("package")%></span></td> <!-- type -->
+													<td><%=resultSet.getString("city")%></td>
+													<td><a href="admin-list-view.jsp?id=<%=resultSet.getString("id") %>"><i class="fa fa-eye"></i></a></td>
+													<td><a href="admin-list-edit.jsp?id=<%=resultSet.getString("id") %>"><i class="fa fa-edit"></i></a></td>
+													<td><a href="admin-list-delete.jsp?id=<%=resultSet.getString("id") %>"><i class="material-icons">delete</i></a></td>
 													</tr>
 													<%
 													}
@@ -275,7 +290,7 @@
 													e.printStackTrace();
 													}
 													%>
-													</table>
+													<!-- </table> -->
 													</body>
 													</html>
 													
@@ -284,7 +299,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="admin-pag-na">
+								<!-- <div class="admin-pag-na">
 									<ul class="pagination list-pagenat">
 										<li class="disabled"><a href="#!!"><i class="material-icons">chevron_left</i></a> </li>
 										<li class="active"><a href="#!">1</a> </li>
@@ -294,7 +309,7 @@
 										
 										<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a> </li>
 									</ul>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -321,12 +336,8 @@
 	<script src="js/custom.js"></script>
 </body>
 
-
 <!-- Mirrored from rn53themes.net/themes/demo/directory/admin-all-users.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 02 Jul 2018 05:14:02 GMT -->
 </html>
-
-
-
 
 </body>
 </html>
