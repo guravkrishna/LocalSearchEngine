@@ -10,42 +10,45 @@ public class OrderDao {
 	    List<Order> list=new ArrayList<Order>();  
 	      
 	    try{  
-	        Connection con=DbUtil.getConnection();  
-	        PreparedStatement ps=con.prepareStatement("select * from ordermanagement");  
+	    	DB_Connection obj_DB_Connection=new DB_Connection();
+	    	Connection connection=obj_DB_Connection.get_connection();
+	        PreparedStatement ps=connection.prepareStatement("select l.title,l.fname,l.phone,c.category,c.subcategory,p.startdate,p.expiredate from listing l join category c\r\n" + 
+	        		"on l.id=c.id join package p on c.id=p.id;\r\n" + 
+	        		"");  
 	        ResultSet rs=ps.executeQuery();  
 	        while(rs.next()){  
 	            Order u=new Order();  
-	            u.setId(rs.getInt("id"));  
-	            u.setOrder_name(rs.getString("order_name"));  
-	            u.setLocation(rs.getString("location"));  
-	            u.setShipping_date(rs.getString("shipping_date"));  
-	            u.setDelivery_date(rs.getString("delivery_date"));  
-	            u.setPrice(rs.getString("price"));
-	            u.setMobile_no(rs.getString("mobile_no"));
-	            u.setEmail(rs.getString("email"));
+	            u.setTitle(rs.getString("title"));  
+	            u.setFname(rs.getString("fname"));  
+	            u.setPhone(rs.getString("phone"));  
+	            u.setCategory(rs.getString("category"));  
+	            u.setSubcategory(rs.getString("subcategory"));
+	            u.setStartdate(rs.getDate("startdate"));
+	            u.setExpiredate(rs.getDate("expiredate"));
 	            list.add(u);
 	        }  
 	    }
 	    catch(Exception e){System.out.println(e);}  
 	    return list;  
 	}  
-	 public static Order getRecordById(int id){  
+	 public static Order getRecordByName(String fname){  
 		    Order u=null;  
 		    try{  
-		        Connection con=DbUtil.getConnection();  
-		        PreparedStatement ps=con.prepareStatement("select * from ordermanagement where id=?");  
-		        ps.setString(1,id+"");  
+		    	DB_Connection obj_DB_Connection=new DB_Connection();
+		    	Connection connection=obj_DB_Connection.get_connection();  
+		        PreparedStatement ps=connection.prepareStatement("select l.title,l.fname,l.phone,c.category,c.subcategory,p.startdate,p.expiredate from listing l join category c "+
+		        		"on l.id=c.id join package p on c.id=p.id where l.fname=?");  
+		        ps.setString(1,fname+"");  
 		        ResultSet rs=ps.executeQuery();  
 		        while(rs.next()){  
 		            u=new Order();  
-		            u.setId(rs.getInt("id"));  
-		            u.setOrder_name(rs.getString("order_name"));  
-		            u.setLocation(rs.getString("location"));  
-		            u.setShipping_date(rs.getString("shipping_date"));  
-		            u.setDelivery_date(rs.getString("delivery_date"));  
-		            u.setPrice(rs.getString("price")); 
-		            u.setMobile_no(rs.getString("mobile_no"));
-		            u.setEmail(rs.getString("email"));
+		            u.setTitle(rs.getString("title"));  
+		            u.setFname(rs.getString("fname"));  
+		            u.setPhone(rs.getString("phone"));  
+		            u.setCategory(rs.getString("category"));  
+		            u.setSubcategory(rs.getString("subcategory"));
+		            u.setStartdate(rs.getDate("startdate"));
+		            u.setExpiredate(rs.getDate("expiredate"));
 		        }  
 		    }catch(Exception e){System.out.println(e);}  
 		    return u;  

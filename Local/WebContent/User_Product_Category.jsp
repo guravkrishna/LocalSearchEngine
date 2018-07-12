@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="user_header.html" %>
+	<%@include file="user_header.jsp" %>
 		
 		<div class="sb2-2">
 				<!--== breadcrumbs ==-->

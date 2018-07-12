@@ -15,7 +15,7 @@ history.pushState(null,null,'Useradmin.jsp');
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="user_header.html" %>
+	<%@include file="user_header.jsp" %>
 			<!--== BODY INNER CONTAINER ==-->
 		
 			 <div class="sb2-2">

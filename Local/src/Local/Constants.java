@@ -7,7 +7,7 @@ public interface Constants
 	String DAO = "file";
 	String SUCCESS = "SUCCESS";
 	String DRIVER = "com.mysql.jdbc.Driver";
-	String URL = "jdbc:mysql://localhost:3306/jusdial";
+	String URL = "jdbc:mysql://localhost:3306/localsearchengine";
 	String UID = "root";
 	String PWD = "root";			
 }

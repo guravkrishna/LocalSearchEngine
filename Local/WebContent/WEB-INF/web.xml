@@ -244,6 +244,26 @@
     <servlet-name>User_Free_Category_Listing</servlet-name>
     <url-pattern>/User_Free_Category_Listing</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExcelExport</display-name>
+    <servlet-name>ExcelExport</servlet-name>
+    <servlet-class>Local.ExcelExport</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExcelExport</servlet-name>
+    <url-pattern>/ExcelExport</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExcelExportOrder</display-name>
+    <servlet-name>ExcelExportOrder</servlet-name>
+    <servlet-class>Local.ExcelExportOrder</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExcelExportOrder</servlet-name>
+    <url-pattern>/ExcelExportOrder</url-pattern>
+  </servlet-mapping>
   
    <!-- SMTP settings -->
 	<!--<context-param>

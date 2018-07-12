@@ -17,58 +17,75 @@
 						<li class="page-back"><a href="admin.jsp"><i class="fa fa-backward" aria-hidden="true"></i> Back</a> </li>
 					</ul>
 				</div>
-				<div class="tz-2 tz-2-admin">
+				<html>  
+                  <head>  
+                    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
+                     <title>View Users</title>  
+                        </head>  
+                         <body>  
+                         <form action="/Local/ExcelExport" method="get">
+                          <table>
+                               <tr><td><input type="submit" value="All Export Transaction List"></td></tr>
+                           </table>
+                          </form> 
+                           
+                          <form action="/Local/admin-search-transaction.jsp" method="get">
+                              <table>
+                                  <tr><td>Enter the PackageType:</td><td><input type="text" name="type"></td></tr>
+                                  <tr><td><input type="submit" value="Submit"></td></tr>
+                                  </table>
+                               </form>  
+                         <%@page import="Local.TransactionDao,Local.*,java.util.*"%>  
+				
+				      <div class="tz-2 tz-2-admin">
 					<div class="tz-2-com tz-2-main">
-						<h4>All Transaction</h4> <a class="dropdown-button drop-down-meta drop-down-meta-inn" href="#" data-activates="dr-list"><i class="material-icons">more_vert</i></a>
-						
+						<h4>All Transaction</h4>
+                                              <%  
+                                                List<Transaction> list=TransactionDao.getAllRecords();  
+                                                request.setAttribute("list",list);  
+                                              %>  
 						<!-- Dropdown Structure -->
 						<div class="split-row">
 							<div class="col-md-12">
 								<div class="box-inn-sp ad-inn-page">
 									<div class="tab-inn ad-tab-inn">
 										<div class="table-responsive">
-											<html>  
-<head>  
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
-<title>View Users</title>  
-</head>  
-<body>  
-  
-<%@page import="Local.TransactionDao,Local.*,java.util.*"%>  
-  
-<h1>Transaction List</h1>  
-  
-<%  
-List<Transaction> list=TransactionDao.getAllRecords();  
-request.setAttribute("list",list);  
-%>  
-  
-<table border="1" width="90%">  
-<tr><th>Id</th><th>Customer Name</th><th>Products Name</th><th>Order Date</th>  
-<th>Email</th><th>State</th><th>Address</th><th>Payment</th></tr>  
-<c:forEach items="${list}" var="u">  
-
-<tr><td>${u.getId()}</td><td>${u.getCustomer_name()}</td><td>${u.getProducts_name()}</td>  
-<td>${u.getOrder_date()}</td><td>${u.getEmail()}</td><td>${u.getState()}</td> 
- <td>${u.getAddress()}</td><td>${u.getPayment()}</td> 
-</c:forEach>  
-</table>  
-
-  
-</body>  
-</html>  
+											<table class="table table-hover">
+												<thead>
+													<tr>
+														<th>Id</th>
+														<th>Type</th>
+														<th>Start Date</th>
+														<th>Expire Date</th>
+														<th>Transaction</th>
+														<th>Amount</th>
+														<th>Status</th>
+													</tr>
+													
+                                              <c:forEach items="${list}" var="u">  
+													
+												</thead>
+												<tbody>
+													<tr>
+														<td>${u.getId()}</td>
+														<td>${u.getType()}</td>
+														<td>${u.getStartdate()}</td>  
+														<td>${u.getExpiredate()}</td>
+														<td>${u.getTransaction()}</td>
+                                                        <td>${u.getAmount()}</td>
+                                                         
+                                                       <td> <span class="label label-primary">${u.getStatus()}</span> </td>
+													</tr>
+												</tbody>
+											</c:forEach>  
+											</table>
 										</div>
 									</div>
 								</div>
-								<div class="admin-pag-na">
-									<ul class="pagination list-pagenat">
-										<li class="disabled"><a href="#!!"><i class="material-icons">chevron_left</i></a> </li>
-										<li class="active"><a href="#!">1</a> </li>
-										<li class="waves-effect"><a href="#!">2</a> </li>
-										<li class="waves-effect"><a href="#!">3</a> </li>
-										<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a> </li>
-									</ul>
-								</div>
+                              </table>  
+                            </body>  
+                           </html>  
+								
 							</div>
 						</div>
 					</div>
@@ -76,6 +93,7 @@ request.setAttribute("list",list);
 			</div>
 		</div>
 	</div>
+	
 	<!--== BOTTOM FLOAT ICON ==-->
 	<%@include file="Admin_footer.html" %>
 </body>

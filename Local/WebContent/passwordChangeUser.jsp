@@ -7,8 +7,44 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="user_header.html" %>
+	<%@include file="user_header.jsp" %>
 			<!--== BODY INNER CONTAINER ==-->
+
+<!-- jsp code -->
+
+<%
+try{
+	
+connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+statement=connection.createStatement();
+String sql ="select * from localsearchengine.signup where id="+id;
+
+resultSet = statement.executeQuery(sql);
+if(resultSet.next()){
+%>
+<!DOCTYPE html>
+<html>
+<body>
+
+ 
+<!--  <input type="hidden" name="finame" value="<%=resultSet.getString("id") %>">-->
+<!--  <input type="text" name="id" value="<%=resultSet.getString("id") %>">-->
+
+
+
+
+
+
+
+
+<!-- jsp end -->
+
+
+
+
+
+
+
 
 
 
@@ -25,44 +61,48 @@
 									<div class="tab-inn ad-tab-inn">
 										<div class="hom-cre-acc-left hom-cre-acc-right">
 											<div class="">
-												<form class="" action="ChangePass.jsp">
+												<form class="" action="passwordChange2.jsp" method="post">
 												
+												
+												
+												<div class="row">
+															 <input type=hidden name="id"    value="<%=resultSet.getString("id") %>" readonly><br>
+														</div>
+												
+												
+												<div class="row">
+												<div class="input-field col s12">
+															 <input type="password" name="id"    value="" ><br>
+														<label for="">current password</label>
+														</div>
+												</div>
 													<div class="row">
 															<div class="input-field col s12">
-																<input id="cpass" type="password" class="validate" required> 
-																<label for="email">Current Password</label>
+																<input name="pass" type="password" class="validate" required value=""> 
+																<label for="">New password</label>
 															</div>
 														</div>
-														
-														<div class="row">
-															<div class="input-field col s12">
-																<input id="npass" type="password" class="validate" required> 
-																<label for="email">New Password</label>
-															</div>
-														</div>
-														
-														<div class="row">
-															<div class="input-field col s12">
-																<input id="rpass" type="password" class="validate" required> 
-																<label for="email">Re-Enter New Password</label>
-															</div>
-														</div>
-														
-														
-														<!-- jsp code to change password -->
 												
-</body>
-</html>
-
-
-
-
-														
+														<div class="row">
+															<div class="input-field col s12">
+																<input name="confirmpass" type="password" class="validate" required value=""> 
+																<label for="">Confirm new password</label>
+															</div>
+														</div>
+													
+	
+	
+														<center><div class="row" style="width:40%">
+																<div class="input-field col s12">
+																<input type="submit" value="SUBMIT" > </div>
+																</div></center>
 														<!--jsp code to change password end  -->
 														
-														<div class="row">
-															<div class="input-field col s12"> <a class="waves-effect waves-light btn-large full-btn" href="">Submit User</a> </div>
-														</div>
+														
+								
+								
+								
+								
 												</form>
 											</div>
 										</div>
@@ -81,7 +121,19 @@
 	<script src="js/custom.js"></script>
 	
 	
-<%@include file="user_footer.html" %>
+
+
+
+<%
+}
+connection.close();
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+</body>
+</html> 
+<%@include file="footer.html" %>
 </body>
 
 </html>

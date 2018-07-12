@@ -10,41 +10,41 @@ public class TransactionDao {
 		    List<Transaction> list=new ArrayList<Transaction>();  
 		      
 		    try{  
-		        Connection con=DbUtil.getConnection();  
-		        PreparedStatement ps=con.prepareStatement("select * from transaction");  
+		    	DB_Connection obj_DB_Connection=new DB_Connection();
+		    	Connection connection=obj_DB_Connection.get_connection();
+		        PreparedStatement ps=connection.prepareStatement("select * from package");  
 		        ResultSet rs=ps.executeQuery();  
 		        while(rs.next()){  
 		            Transaction u=new Transaction();  
 		            u.setId(rs.getInt("id"));  
-		            u.setCustomer_name(rs.getString("customer_name"));  
-		            u.setProducts_name(rs.getString("products_name"));  
-		            u.setOrder_date(rs.getString("order_date"));  
-		            u.setEmail(rs.getString("email"));  
-		            u.setState(rs.getString("state"));
-		            u.setAddress(rs.getString("address"));
-		            u.setPayment(rs.getString("payment"));
+		            u.setType(rs.getString("type"));
+		            u.setStartdate(rs.getDate("startdate"));
+		            u.setExpiredate(rs.getDate("expiredate"));
+		            u.setTransaction(rs.getString("transaction"));  
+		            u.setAmount(rs.getString("amount"));  
+		            u.setStatus(rs.getString("status"));  
 		            list.add(u);
 		        }  
 		    }catch(Exception e){System.out.println(e);}  
 		    return list;  
 		}  
-	 public static Transaction getRecordById(int id){  
+	 public static Transaction getRecordByType(String type){  
 		    Transaction u=null;  
 		    try{  
-		        Connection con=DbUtil.getConnection();  
-		        PreparedStatement ps=con.prepareStatement("select * from transaction where id=?");  
-		        ps.setString(1,id+"");  
+		    	DB_Connection obj_DB_Connection=new DB_Connection();
+		    	Connection connection=obj_DB_Connection.get_connection();  
+		        PreparedStatement ps=connection.prepareStatement("select * from package where type=?");  
+		        ps.setString(1,type+"");  
 		        ResultSet rs=ps.executeQuery();  
 		        while(rs.next()){  
 		            u=new Transaction();  
 		            u.setId(rs.getInt("id"));  
-		            u.setCustomer_name(rs.getString("customer_name"));  
-		            u.setProducts_name(rs.getString("products_name"));  
-		            u.setOrder_date(rs.getString("order_date"));  
-		            u.setEmail(rs.getString("email"));  
-		            u.setState(rs.getString("state")); 
-		            u.setAddress(rs.getString("address"));
-		            u.setPayment(rs.getString("payment"));
+		            u.setType(rs.getString("type"));
+		            u.setStartdate(rs.getDate("startdate"));
+		            u.setExpiredate(rs.getDate("expiredate"));
+		            u.setTransaction(rs.getString("transaction"));  
+		            u.setAmount(rs.getString("amount"));  
+		            u.setStatus(rs.getString("status"));  
 		        }  
 		    }catch(Exception e){System.out.println(e);}  
 		    return u;  

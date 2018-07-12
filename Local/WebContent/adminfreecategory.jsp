@@ -13,40 +13,11 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 		
-		<%
-		String email=request.getParameter("email");
-		System.out.println(email);
-String driverName = "com.mysql.jdbc.Driver";
-String connectionUrl = "jdbc:mysql://localhost:3306/";
-String dbName = "localsearchengine";
-String userId = "root";
-String password = "root";
-
-try {
-Class.forName(driverName);
-} catch (ClassNotFoundException e) {
-e.printStackTrace();
-}
-
-Connection connection = null;
-Statement statement = null;
-ResultSet resultSet = null;
-%>
-<%
-try{ 
-connection = DriverManager.getConnection(connectionUrl+dbName, userId, password);
-statement=connection.createStatement();
-String sql ="SELECT * from listing where email="+email;
-System.out.println(sql);
-resultSet = statement.executeQuery(sql);
- %>
-	 
-
 	<!-- <div id="preloader">
 		<div id="status">&nbsp;</div>
 	</div> -->
 	<!--== MAIN CONTRAINER ==-->
-	<%@include file="Admin_header.html" %>
+	<%@include file="Admin-header.jsp" %>
 			<!--== BODY INNER CONTAINER ==-->
 			<div class="sb2-2">
 				<!--== breadcrumbs ==-->
@@ -77,8 +48,7 @@ resultSet = statement.executeQuery(sql);
 						<div class="hom-cre-acc-left hom-cre-acc-right">
 							<div class="">
 								<form class="" action="./AddFreeCategory" method="post" enctype="multipart/form-data">
-								<input type="hidden" name="email" value="<%=resultSet.getString("email") %>">
-									
+							
 									<div class="row">
 										<div class="input-field col s12"> 
 											 <select name="btype">
@@ -115,20 +85,10 @@ resultSet = statement.executeQuery(sql);
 										</div>
 									<div class="row">
 										<div class="input-field col s12">
-										<% while(resultSet.next()){
-	%>
-											 <input id="email" type="email" class="validate" name="email" value="<%=resultSet.getString(6) %> ">
+																				 <input id="email" type="email" class="validate" name="email"  >
 											
 											<label for="email">Email</label> 
-												<% 
-}
-	
-}
-catch (Exception e) {
-e.printStackTrace();
-}
-
-%>
+											
 											
 										</div>
 									</div>
@@ -222,12 +182,12 @@ e.printStackTrace();
 								</div>
 								<div class="row">
 										<div class="input-field col s12"> 
-											 <select name="ptype">
+											 <select name="ptype" id="picksite">
 												<option value="">Packages</option>
-												<option value="Free">Free</option>
-												<option value="3 Months">3 Months</option>
-												<option value="6 Months">6 Months</option>
-												<option value="1 Year">1 Year</option>
+												<option value="http://google.com">Free</option>
+												<option value="http://google.com">3 Months</option>
+												<option value="http://google.com">6 Months</option>
+												<option value="http://google.com">1 Year</option>
 												
 											</select>  
 											
@@ -242,6 +202,12 @@ e.printStackTrace();
 											<label for="textarea1">Business Descriptions</label>
 										</div>
 									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input type="text"  name="year">
+											<label for="list_addr">Establish Year</label>
+										</div>
+									
 									<div class="row">
 										<div class="db-v2-list-form-inn-tit">
 											<h5>Social Media Informations:</h5>
@@ -361,7 +327,7 @@ e.printStackTrace();
 										
  -->									
  </div>
- <button type="submit" value="Submit">SUBMIT </button> 
+ <button type="submit" value="Submit" id="executelink">SUBMIT </button> 
 <br>
 
 								</form>
@@ -377,6 +343,17 @@ e.printStackTrace();
 			</div>
 		</div>
 	</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var newUrl = "";
+        $("#picksite").change(function() {
+            $newUrl = $("#picksite option:selected").val();
+        });
+        $("#executelink").click(function() {
+            location = $newUrl ;
+        });
+    });
+</script>
 
 									
 	<!--== BOTTOM FLOAT ICON ==-->

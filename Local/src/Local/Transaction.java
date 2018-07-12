@@ -1,54 +1,51 @@
 package Local;
 
+import java.util.Date;
+
 public class Transaction {
 	private int id;
-	private String customer_name,products_name,order_date,email,state,address,payment;
-    public int getId() {
+	private String type,transaction,amount,status;
+	private Date startdate,expiredate;
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getCustomer_name() {
-		return customer_name;
+	public String getType() {
+		return type;
 	}
-	public void setCustomer_name(String customer_name) {
-		this.customer_name = customer_name;
+	public void setType(String type) {
+		this.type = type;
 	}
-	public String getProducts_name() {
-		return products_name;
+	public String getTransaction() {
+		return transaction;
 	}
-	public void setProducts_name(String products_name) {
-		this.products_name = products_name;
+	public void setTransaction(String transaction) {
+		this.transaction = transaction;
 	}
-	public String getOrder_date() {
-		return order_date;
+	public String getAmount() {
+		return amount;
 	}
-	public void setOrder_date(String order_date) {
-		this.order_date = order_date;
+	public void setAmount(String amount) {
+		this.amount = amount;
 	}
-	public String getEmail() {
-		return email;
+	public String getStatus() {
+		return status;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	public String getState() {
-		return state;
+	public Date getStartdate() {
+		return startdate;
 	}
-	public void setState(String state) {
-		this.state = state;
+	public void setStartdate(Date startdate) {
+		this.startdate = startdate;
 	}
-	public String getAddress() {
-		return address;
+	public Date getExpiredate() {
+		return expiredate;
 	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getPayment() {
-		return payment;
-	}
-	public void setPayment(String payment) {
-		this.payment = payment;
+	public void setExpiredate(Date expiredate) {
+		this.expiredate = expiredate;
 	}
 }

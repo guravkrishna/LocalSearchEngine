@@ -1,54 +1,50 @@
 package Local;
 
+import java.util.Date;
+
 public class Order {
-private int id;
-private String order_name,location,shipping_date,delivery_date,price,mobile_no,email;
-public int getId() {
-	return id;
+private String title,fname,phone,category,subcategory;
+private Date startdate,expiredate;
+public String getTitle() {
+	return title;
 }
-public void setId(int id) {
-	this.id = id;
+public void setTitle(String title) {
+	this.title = title;
 }
-public String getOrder_name() {
-	return order_name;
+public String getFname() {
+	return fname;
 }
-public void setOrder_name(String order_name) {
-	this.order_name = order_name;
+public void setFname(String fname) {
+	this.fname = fname;
 }
-public String getLocation() {
-	return location;
+public String getPhone() {
+	return phone;
 }
-public void setLocation(String location) {
-	this.location = location;
+public void setPhone(String phone) {
+	this.phone = phone;
 }
-public String getShipping_date() {
-	return shipping_date;
+public String getCategory() {
+	return category;
 }
-public void setShipping_date(String shipping_date) {
-	this.shipping_date = shipping_date;
+public void setCategory(String category) {
+	this.category = category;
 }
-public String getDelivery_date() {
-	return delivery_date;
+public String getSubcategory() {
+	return subcategory;
 }
-public void setDelivery_date(String delivery_date) {
-	this.delivery_date = delivery_date;
+public void setSubcategory(String subcategory) {
+	this.subcategory = subcategory;
 }
-public String getPrice() {
-	return price;
+public Date getStartdate() {
+	return startdate;
 }
-public void setPrice(String price) {
-	this.price = price;
+public void setStartdate(Date startdate) {
+	this.startdate = startdate;
 }
-public String getMobile_no() {
-	return mobile_no;
+public Date getExpiredate() {
+	return expiredate;
 }
-public void setMobile_no(String mobile_no) {
-	this.mobile_no = mobile_no;
-}
-public String getEmail() {
-	return email;
-}
-public void setEmail(String email) {
-	this.email = email;
+public void setExpiredate(Date expiredate) {
+	this.expiredate = expiredate;
 }
 }

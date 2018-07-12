@@ -14,7 +14,7 @@
 <body>
     
   <%
-    response.setContentType("text/jsp");
+    response.setContentType("text/html");
     String name = request.getParameter("uname");
 	String password = request.getParameter("pwd");
 	
@@ -26,7 +26,7 @@
 	try
 	{
 		con = JDBCHelper.getConnection();
-		query="select email,password from signup where email=? and password=?";
+		query="select mail,pass from signup where mail=? and pass=?";
 	    ps=con.prepareStatement(query);
 	    ps.setString(1, name);
 	    ps.setString(2, password);

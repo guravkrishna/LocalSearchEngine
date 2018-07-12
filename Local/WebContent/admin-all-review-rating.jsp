@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,69 +12,71 @@
 				<!--== breadcrumbs ==-->
 				<div class="sb2-2-2">
 					<ul>
-						<li><a href="main.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a> </li>
-						<li class="active-bre"><a href="#">Review and Rating</a> </li>
-						<li class="page-back"><a href="admin.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a> </li>
+						<li><a href="main.jsp"><i class="fa fa-home" aria-hidden="true"></i> Home</a> </li>
+						<li class="active-bre"><a href="#"> All Review and Rating List</a> </li>
+						<li class="page-back"><a href="admin.jsp"><i class="fa fa-backward" aria-hidden="true"></i> Back</a> </li>
 					</ul>
 				</div>
-				<div class="tz-2 tz-2-admin">
+				<html>  
+                  <head>  
+                    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
+                     <title>View Users</title>  
+                        </head>  
+                         <body>  
+                         <form action="/Local/admin-search-review-rating.jsp" method="get">
+                         <table>
+                           <tr><td>Enter the CustomerName:</td><td><input type="text" name="fname"></td></tr>
+                               <tr><td><input type="submit" value="Submit"></td></tr>
+                            </table>
+                           </form>  
+                         <%@page import="Local.ReviewDao,Local.*,java.util.*"%>  
+				
+				      <div class="tz-2 tz-2-admin">
 					<div class="tz-2-com tz-2-main">
-						<h4>All Review and Rating</h4> <a class="dropdown-button drop-down-meta drop-down-meta-inn" href="#" data-activates="dr-list"><i class="material-icons">more_vert</i></a>
-						
+						<h4>All Review and Ratings</h4>
+                                              <%  
+                                                List<Review> list=ReviewDao.getAllRecords();  
+                                                request.setAttribute("list",list);  
+                                              %>  
 						<!-- Dropdown Structure -->
 						<div class="split-row">
 							<div class="col-md-12">
 								<div class="box-inn-sp ad-inn-page">
 									<div class="tab-inn ad-tab-inn">
 										<div class="table-responsive">
-											<!DOCTYPE html>  
-  
-<html>  
-<head>  
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
-<title>View Users</title>  
-</head>  
-<body>  
-  
-<%@page import="Local.ReviewDao,Local.*,java.util.*"%>  
-  
-<h1>Review List</h1>  
-  
-<%  
-List<Review> list=ReviewDao.getAllRecords();  
-request.setAttribute("list",list);  
-%>  
-  
-<table border="1" width="90%">  
-<tr><th>Id</th><th>Name</th><th>Location</th><th>Contact</th>  
-<th>Product</th><th>Review</th><th>Rating</th><th>Search</th></tr>  
-<c:forEach items="${list}" var="u">  
-<script>
-
-</script>
-<tr><td>${u.getId()}</td><td>${u.getName()}</td><td>${u.getLocation()}</td>  
-<td>${u.getContact()}</td><td>${u.getProduct()}</td><td>${u.getReview()}</td>  
-<td>${u.getRating()}</td>
-<td><a href="admin-search-review-rating.jsp?id=${u.getId()}">Search</a></td>  
-</tr>  
-</c:forEach>  
-</table>  
-
-  
-</body>  
-</html>  
+											<table class="table table-hover">
+												<thead>
+													<tr>
+														<th>Id</th>
+														<th>Fname</th>
+														<th>Category</th>
+														<th>Title</th>
+														<th>Rating</th>
+														<th>Review</th>
+													</tr>
+													
+                                              <c:forEach items="${list}" var="u">  
+													
+												</thead>
+												<tbody>
+													<tr>
+														<td>${u.getId()}</td>
+														<td>${u.getFname()}</td>
+														<td>${u.getCategory()}</td>  
+														<td>${u.getTitle()}</td>
+														<td> <span class="label label-success">${u.getRating()}</span> </td>
+                                                        <td>${u.getReview()}</td>
+													</tr>
+												</tbody>
+											</c:forEach>  
+											</table>
 										</div>
 									</div>
 								</div>
-								<div class="admin-pag-na">
-									<ul class="pagination list-pagenat">
-										<li class="disabled"><a href="#!!"><i class="material-icons">chevron_left</i></a> </li>
-										<li class="active"><a href="#!">1</a> </li>
-										<li class="waves-effect"><a href="#!">2</a> </li>
-										<li class="waves-effect"><a href="#!">3</a> </li>
-										<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a> </li>
-									</ul>
-								</div>
+                              </table>  
+                            </body>  
+                           </html>  
+								
 							</div>
 						</div>
 					</div>
@@ -82,6 +84,7 @@ request.setAttribute("list",list);
 			</div>
 		</div>
 	</div>
+	
 	<!--== BOTTOM FLOAT ICON ==-->
 	<%@include file="Admin_footer.html" %>
 </body>

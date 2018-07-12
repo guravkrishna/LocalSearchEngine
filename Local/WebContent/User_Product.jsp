@@ -22,7 +22,7 @@ else if (Notification.permission !== 'denied') {
 </script>
 </head>
 <body>
-	<%@include file="user_header.html" %>
+	<%@include file="user_header.jsp" %>
 		
 		
 		<div class="sb2-2">

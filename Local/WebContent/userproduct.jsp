@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="user_header.html" %>
+	<%@include file="user_header.jsp" %>
 		
 		
 		<div class="sb2-2">
@@ -128,9 +128,10 @@
 											</div>
 										</div>
 									</div>										
-									<div class="row">
-										<button type=submit value="Submit">Submit</button>
-									</div>
+									<br><center>						
+									<div class="row" style="width:40%";>
+										<input type="submit" value="Submit" onsubmit="return validateForm()"/>
+									</div></center>
 								</form>
 							</div>
 						</div>

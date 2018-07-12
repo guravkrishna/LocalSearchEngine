@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="user_header.html" %>
+	<%@include file="user_header.jsp" %>
 			<!--== BODY INNER CONTAINER ==-->
 			
 			
@@ -63,20 +63,20 @@
 													</div>
 													<div class="row">
 														<div class="input-field col s12">
-															<input name="email" type="email" class="validate">
+															<input name="email" type="email" class="validate" required>
 															<label for="email">Email</label>
 														</div>
 													</div>
 													<div class="row">
 														<div class="input-field col s12">
-															<input name="address" type="text" class="validate">
+															<input name="address" type="text" class="validate" required>
 															<label for="address">Address</label>
 														</div>
 													</div>
 													
 													<div class="row">
 														<div class="input-field col s12">
-															<select>
+															<select required>
 																<option value="" disabled selected>Choose your city</option>
 																<option value="karnataka">Karnataka</option>
 																<option value="Charleston">Charleston</option>
@@ -95,10 +95,10 @@
 													</div>
 													
 													</div>
-													<div class="row">
-													<!--  	<div class="input-field col s12"> <a class="waves-effect waves-light btn-large full-btn" href="Useradmin.jsp">Submit User</a> </div> -->
-													 <input type="submit" value="submit" > <a href="Useradmin.jsp"></a>
-													</div>
+													<br><center>						
+														<div class="row" style="width:40%";>
+															<input type="submit" value="Submit" onsubmit="return validateForm()"/>
+														</div></center>
 												</form>
 											</div>
 										</div>

@@ -76,7 +76,7 @@ history.pushState(null,null,'main.jsp');
 						<h1>Connect with the right Service Experts</h1> 
 						<p>Find B2B & B2C businesses contact addresses, phone numbers,<br> user ratings and reviews.</p>
 					</div>
-					<form class="tourz-search-form">
+					<form class="tourz-search-form" action="searchInMain.jsp">
 						<div class="input-field">
 							<input type="text" id="select-city" class="autocomplete">
 							
@@ -186,7 +186,7 @@ history.pushState(null,null,'main.jsp');
 					<!--SECTION: SEARCH BOX-->
 					<div class="ts-menu-3">
 						<div class="">
-							<form class="tourz-search-form tourz-top-search-form">
+							<form class="tourz-search-form tourz-top-search-form" action="searchInMain.jsp">
 								<div class="input-field">
 									<input type="text" id="top-select-city" class="autocomplete">
 									<label for="top-select-city">Enter city</label>

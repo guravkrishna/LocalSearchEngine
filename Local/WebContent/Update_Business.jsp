@@ -24,7 +24,16 @@ function validateForm() {
 </script>
 </head>
 <body>
-	<%@include file="user_header.html" %>
+<%@include file="user_header.jsp" %>
+	
+<%
+try{ 
+connection = DriverManager.getConnection(connectionUrl+database, userid, password);
+statement=connection.createStatement();
+String sql ="SELECT * FROM category where id="+id;
+System.out.println(sql);
+resultSet = statement.executeQuery(sql);
+ %>
 		
 		
 		<div class="sb2-2">
@@ -55,11 +64,15 @@ function validateForm() {
 									<div class="tab-inn ad-tab-inn">
 						<div class="hom-cre-acc-left hom-cre-acc-right">
 							<div class="">
-								<form class="" name="upload_form" action="User_Free_Category_Listing" method="post" enctype="multipart/form-data">
+							
+							<%while(resultSet.next()){%>
+							
+								<form class="" name="upload_form" action="Update_Business_Process.jsp" method="post">
+								<input type="hidden" name="id" value="<%=resultSet.getString("id") %>">
 								
 									<div class="row">
 										<div class="input-field col s12"> 
-											 <select name="category">
+											 <select name="category" value="<%=resultSet.getString(1) %>">
 												<option value="">Category</option>
 												<option value="Hotel and Resorts">Hotel and Resorts</option>
 												<option value="Education and Traninings">Education and Traninings</option>
@@ -80,34 +93,34 @@ function validateForm() {
 									
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="product_name" name="business_name" type="text" class="validate" required>
+											<input id="product_name" name="business_name" type="text" value="<%=resultSet.getString(2) %>" class="validate" required>
 											<label for="first_name">Business Name</label>
 										</div>
 										
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="product_title" name="sub_business" type="text" class="validate" required>
+											<input id="product_title" name="sub_business" type="text" value="<%=resultSet.getString(3) %>" class="validate" required>
 											<label for="list_name">Sub-Category</label>
 										</div>
 									</div>
 									
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="email" name="email" type="email" class="validate" required>
+											<input id="email" name="email" type="email"  value="<%=resultSet.getString(4) %>" class="validate" required>
 											<label for="email">Email</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="list_addr" name="list_addr" type="text" class="validate" required>
+											<input id="list_addr" name="list_addr" type="text"  value="<%=resultSet.getString(5) %>" class="validate" required>
 											<label for="list_addr">Address</label>
 										</div>
 									</div>
 									
 									<div class="row">
 									<div class="input-field col s12">
-											 <select name="daynames" multiple>
+											 <select name="daynames" multiple value="<%=resultSet.getString(6) %>">
 												<option value="">Opening Days</option>
 												<option value="All Days">All Days</option>
 												<option value="Monday">Monday</option>
@@ -125,7 +138,7 @@ function validateForm() {
 									<div class="row">
 									<div class="input-field col s6">
 									<!-- <input type="text" name="opentime"> -->
-										 <select name="open">
+										 <select name="open" value="<%=resultSet.getString(7) %>">
 											<option value="" unable selected>Opening Time</option>
 											<option value="12:00 AM">12:00 AM</option>
 											<option value="01:00 AM">01:00 AM</option>
@@ -155,7 +168,7 @@ function validateForm() {
 										
 									</div>
 									<div class="input-field col s6">
-										 <select name="close">
+										 <select name="close" value="<%=resultSet.getString(8) %>">
 											<option value="" unable selected>Closing Time</option>
 											<option value="12:00 AM">12:00 AM</option>
 											<option value="01:00 AM">01:00 AM</option>
@@ -188,7 +201,7 @@ function validateForm() {
 									
 									<div class="row">
 										<div class="input-field col s12"> 
-											 <select name="btype">
+											 <select name="btype" value="<%=resultSet.getString(9) %>">
 												<option value="">Packages Type</option>
 												<option value="Free">Free</option>
 												<option value="3 Month">3 Month</option>
@@ -203,14 +216,14 @@ function validateForm() {
 									
 									<div class="row">
 										<div class="input-field col s12">
-											<textarea id="textarea1" name="description" class="materialize-textarea"></textarea>
+											<textarea id="textarea1" name="description" value="<%=resultSet.getString(10) %>" class="materialize-textarea"></textarea>
 											<label for="textarea1">Product Descriptions</label>
 										</div>
 									</div>
 									
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" name="year" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10"  class="validate">
+											<input type="text" name="year" value="<%=resultSet.getString(11) %>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10"  class="validate">
 											<label for="year">Business Establishment Year</label>
 										</div>
 										
@@ -223,19 +236,19 @@ function validateForm() {
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" name="weblink" class="validate" required>
+											<input type="text" name="weblink" class="validate" required value="<%=resultSet.getString(12) %>">
 											<label>Website Link</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" name="facelink" nclass="validate" required>
+											<input type="text" name="facelink" nclass="validate"  value="<%=resultSet.getString(13) %>" required>
 											<label>www.facebook.com/directory</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" name="googlelink" class="validate" required>
+											<input type="text" name="googlelink" class="validate" value="<%=resultSet.getString(14) %>" required>
 											<label>www.googleplus.com/directory</label>
 										</div>
 									</div>
@@ -248,12 +261,12 @@ function validateForm() {
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input type="text" name="map" class="validate" required>
+											<input type="text" name="map"  value="<%=resultSet.getString(15) %>" class="validate" required>
 											<label>Past your iframe code here</label>
 										</div>
 									</div>
 									
-									<div class="row">
+									<!-- <div class="row">
 										<div class="db-v2-list-form-inn-tit">
 											<h5>Cover Image <span class="v2-db-form-note">(image size 1350x500):<span></h5>
 										</div>
@@ -324,12 +337,12 @@ function validateForm() {
 										<div class="file-field input-field">
 											<div class="tz-up-btn"> <span>File</span>
 												 <input id="video_file" name="vid1" type="file">
-												<!-- <input type="file" name="vid1" multiple> --> </div>
+												<input type="file" name="vid1" multiple> </div>
 											<div class="file-path-wrapper db-v2-pg-inp">
 												<input class="file-path validate" type="text"> 
 											</div>
 										</div>
-									</div>
+									</div> -->
 									
 									
 										<br><center>						
@@ -337,6 +350,13 @@ function validateForm() {
 										<input type="submit" value="Update" onsubmit="return validateForm()"/>
 									</div></center>	
 								</form>
+								<%
+							}
+							connection.close();
+							} catch (Exception e) {
+							e.printStackTrace();
+							}
+							%>
 							</div>
 						</div>
 									</div>
